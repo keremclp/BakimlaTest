@@ -12,9 +12,6 @@ const HomeScreen = () => {
       <View style={styles.content}>
         <Text style={styles.title}>Hello BakimlaTest!</Text>
         <Text style={styles.subtitle}>React Native is working! 🎉</Text>
-        <Text style={styles.info}>
-          Edit this file to see changes reflected in your app
-        </Text>
         <Button
           title="Press me"
           color="#f194ff"
@@ -52,9 +49,5 @@ const styles = StyleSheet.create({
     color: '#666',
     marginBottom: 20,
   },
-  info: {
-    fontSize: 14,
-    color: '#999',
-    textAlign: 'center',
-  },
+
 })
