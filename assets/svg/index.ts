@@ -1,7 +1,4 @@
-export {default as CreditCardSvg} from './CreditCard.svg';
-export {default as CashSvg} from './Cash.svg';
+import CreditCardSvg from './CreditCard.svg';
+import CashSvg from './Cash.svg';
 
-
-
-
-
+export { CreditCardSvg, CashSvg };

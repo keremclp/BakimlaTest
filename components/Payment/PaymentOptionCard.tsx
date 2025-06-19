@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-
+import CreditCardSvg from '../../assets/svg/CreditCard.svg';
+import CashSvg from '../../assets/svg/Cash.svg';
 interface PaymentOptionCardProps {
   label: string;
   description: string;
@@ -13,7 +14,11 @@ const PaymentOptionCard = ({ label, description, isCash, selected, onSelect }: P
   return (
     <TouchableOpacity style={[styles.card, selected && styles.selected]} onPress={onSelect}>
       <View style={styles.iconContainer}>
-        <Text style={{ fontSize: 24 }}>{isCash ? '💵' : '💳'}</Text> {/* Placeholder for icon, replace with actual icon component */}
+        {isCash ? (
+          <CashSvg width={24} height={24} fill={selected ? '#5D3FD3' : '#888'} />
+        ) : (
+          <CreditCardSvg width={24} height={24} fill={selected ? '#5D3FD3' : '#888'} />
+        )}
       </View>
       <View style={styles.textContainer}>
         <Text style={[styles.label, selected && styles.selectedLabel]}>{label}</Text>
@@ -28,12 +33,10 @@ export default PaymentOptionCard
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#FFF',
-    borderRadius: 12,
     padding: 16,
     marginBottom: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    elevation: 2,
   },
   selected: {
     borderColor: '#5D3FD3',
