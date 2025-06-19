@@ -7,11 +7,9 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import PaymentOptionCard from '../../components/Payment/PaymentOptionCard'; // Adjust the path as needed
-import { styles } from './styles';
-import { useNavigation } from '@react-navigation/core';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../navigations/types';
+import PaymentOptionCard from '../../components/Payment/PaymentOptionCard';
+import { styles } from '../../components/Payment/styles';
+import PaymentScreenHeader from '../../components/Payment/PaymentScreenHeader';
 
 
 const PaymentScreen = () => {
@@ -20,10 +18,7 @@ const PaymentScreen = () => {
   const [tipAmount, setTipAmount] = useState('');
   const [discountRate, setDiscountRate] = useState('%10');
 
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  
   const bakimlaPoints = 52.02;
-  const servicePrice = 900;
 
   const handleConfirm = () => {
     console.log('Ödeme onaylandı:', {
@@ -36,41 +31,25 @@ const PaymentScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
-        {/* Header with Back Button */}
-        <View style={styles.headerContainer}>
-          {/* add back icon to header */}
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Text style={styles.backIcon}>←</Text>
-          </TouchableOpacity>
-          {/* Header */}
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>Ödeme Al</Text>
-            <Text style={styles.amount}>{servicePrice}₺</Text>
-          </View>
-          {/* add three dot icon to header */}
-          <TouchableOpacity>
-            <Text style={styles.threeDotIcon}>⋮</Text>
-          </TouchableOpacity>
-
-        </View>
+        {/* Header */}
+        <PaymentScreenHeader />
 
         <View style ={styles.paymentMethodContainer}>
           <PaymentOptionCard
-          label="Nakit"
-          description="Bu seçim ile müşterinizden nakit ödeme alabilirsiniz."
-          isCash={true}
-          selected={paymentMethod === 'cash'}
-          onSelect={() => setPaymentMethod('cash')}
-        />
+            label="Nakit"
+            description="Bu seçim ile müşterinizden nakit ödeme alabilirsiniz."
+            isCash={true}
+            selected={paymentMethod === 'cash'}
+            onSelect={() => setPaymentMethod('cash')}
+          />
 
-        <PaymentOptionCard
-          label="Online Kredi Kartı"
-          description="Bu seçim ile müşterinize online ödeme bildirimi göndereceğiz."
-          isCash={false}
-          selected={paymentMethod === 'card'}
-          onSelect={() => setPaymentMethod('card')}
-        />
-
+          <PaymentOptionCard
+            label="Online Kredi Kartı"
+            description="Bu seçim ile müşterinize online ödeme bildirimi göndereceğiz."
+            isCash={false}
+            selected={paymentMethod === 'card'}
+            onSelect={() => setPaymentMethod('card')}
+          />
         </View>
       </ScrollView>
 
