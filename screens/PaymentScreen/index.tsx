@@ -9,6 +9,9 @@ import {
 } from 'react-native';
 import PaymentOptionCard from '../../components/Payment/PaymentOptionCard'; // Adjust the path as needed
 import { styles } from './styles';
+import { useNavigation } from '@react-navigation/core';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../navigations/types';
 
 
 const PaymentScreen = () => {
@@ -17,6 +20,8 @@ const PaymentScreen = () => {
   const [tipAmount, setTipAmount] = useState('');
   const [discountRate, setDiscountRate] = useState('%10');
 
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  
   const bakimlaPoints = 52.02;
   const servicePrice = 900;
 
@@ -31,13 +36,26 @@ const PaymentScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
-        {/* Header */}
+        {/* Header with Back Button */}
         <View style={styles.headerContainer}>
-          <Text style={styles.header}>Ödeme Al</Text>
-          <Text style={styles.amount}>{servicePrice}₺</Text>
+          {/* add back icon to header */}
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Text style={styles.backIcon}>←</Text>
+          </TouchableOpacity>
+          {/* Header */}
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>Ödeme Al</Text>
+            <Text style={styles.amount}>{servicePrice}₺</Text>
+          </View>
+          {/* add three dot icon to header */}
+          <TouchableOpacity>
+            <Text style={styles.threeDotIcon}>⋮</Text>
+          </TouchableOpacity>
+
         </View>
 
-        <PaymentOptionCard
+        <View style ={styles.paymentMethodContainer}>
+          <PaymentOptionCard
           label="Nakit"
           description="Bu seçim ile müşterinizden nakit ödeme alabilirsiniz."
           isCash={true}
@@ -52,6 +70,8 @@ const PaymentScreen = () => {
           selected={paymentMethod === 'card'}
           onSelect={() => setPaymentMethod('card')}
         />
+
+        </View>
       </ScrollView>
 
       {/* Bottom Container - Fixed at bottom, full width */}

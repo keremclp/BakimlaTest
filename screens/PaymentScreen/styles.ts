@@ -12,15 +12,37 @@ export const styles = StyleSheet.create({
     padding: 20,
     paddingBottom: 0, // Remove bottom padding since bottom container is separate
   },
-  headerContainer: {    
-    width: '100%',
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderBottomWidth: 3,
+    borderBottomColor: '#DDD',
+    marginTop: 20,
+  },
+  titleContainer: {    
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    marginTop: 22,
-    marginBottom: 15,
   },
-  header: {
+  backIcon:{
+    fontSize: 24,
+    backgroundColor: '#FFFFFF',
+    padding: 10,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: '#DDD',
+    color: '#131313',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  threeDotIcon: {
+    fontSize: 24,
+    color: '#5D3FD3',
+  },
+  title: {
     fontSize: 18,
     fontWeight: '700',
     marginBottom: 4,
@@ -85,10 +107,17 @@ export const styles = StyleSheet.create({
     color: '#FFF',
     fontWeight: '600',
   },
+  paymentMethodContainer: {
+    marginTop: 20,
+    backgroundColor: '#FFF',
+    borderRadius: 12,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: '#DDD',
+  },
   bottomContainer: {
     position:'relative',
     width: '100%',
-    borderWidth: 1,
     // Remove height and border properties
   },
   optionsContainerTip: {
