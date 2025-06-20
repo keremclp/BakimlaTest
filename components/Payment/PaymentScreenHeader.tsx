@@ -1,14 +1,14 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import { styles } from './styles'; // Adjust the path as needed
+import { styles } from './styles';
 import { useNavigation } from '@react-navigation/core';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigations/types';
-
+import { useAppSelector } from '../../redux/hooks';
 
 const PaymentScreenHeader = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const servicePrice = 900;
+  const servicePrice = useAppSelector((state) => state.payment.servicePrice);
   
   return (
     <View style={styles.headerContainer}>

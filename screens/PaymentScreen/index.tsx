@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -10,16 +9,35 @@ import {
 import PaymentOptionCard from '../../components/Payment/PaymentOptionCard';
 import { styles } from '../../components/Payment/styles';
 import PaymentScreenHeader from '../../components/Payment/PaymentScreenHeader';
-
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import {
+  setPaymentMethod,
+  setActiveOption,
+  setTipAmount,
+  setDiscountRate,
+} from '../../redux/slices/paymentSlice';
 
 const PaymentScreen = () => {
-  const [paymentMethod, setPaymentMethod] = useState<'cash' | 'card'>('cash');
-  const [activeOption, setActiveOption] = useState<'tip' | 'discount' | null>(null);
-  const [tipAmount, setTipAmount] = useState('');
-  const [discountRate, setDiscountRate] = useState('%10');
+  console.log('PaymentScreen component is rendering!');
+  const dispatch = useAppDispatch();
+  const {
+    paymentMethod,
+    activeOption,
+    tipAmount,
+    discountRate,
+    bakimlaPoints,
+    servicePrice,
+  } = useAppSelector((state) => state.payment);
 
-  const bakimlaPoints = 52.02;
-
+  
+  console.log('Current Redux State:', {
+    paymentMethod,
+    activeOption,
+    tipAmount,
+    discountRate,
+    bakimlaPoints,
+    servicePrice,
+  });
   const handleConfirm = () => {
     console.log('Ödeme onaylandı:', {
       method: paymentMethod,
@@ -34,13 +52,13 @@ const PaymentScreen = () => {
         {/* Header */}
         <PaymentScreenHeader />
 
-        <View style ={styles.paymentMethodContainer}>
+        <View style={styles.paymentMethodContainer}>
           <PaymentOptionCard
             label="Nakit"
             description="Bu seçim ile müşterinizden nakit ödeme alabilirsiniz."
             isCash={true}
             selected={paymentMethod === 'cash'}
-            onSelect={() => setPaymentMethod('cash')}
+            onSelect={() => dispatch(setPaymentMethod('cash'))}
           />
 
           <PaymentOptionCard
@@ -48,18 +66,18 @@ const PaymentScreen = () => {
             description="Bu seçim ile müşterinize online ödeme bildirimi göndereceğiz."
             isCash={false}
             selected={paymentMethod === 'card'}
-            onSelect={() => setPaymentMethod('card')}
+            onSelect={() => dispatch(setPaymentMethod('card'))}
           />
         </View>
       </ScrollView>
-
+      
       {/* Bottom Container - Fixed at bottom, full width */}
       <View style={styles.bottomContainer}>
         {/* Options Toggle */}
         <View style={styles.optionsContainerTip}>
           <TouchableOpacity
             style={styles.radioOption}
-            onPress={() => setActiveOption('tip')}
+            onPress={() => dispatch(setActiveOption('tip'))}
           >
             <View style={styles.radioCircle}>
               {activeOption === 'tip' && <View style={styles.radioDot} />}
@@ -70,7 +88,7 @@ const PaymentScreen = () => {
         <View style={styles.optionsContainerDiscount}>
           <TouchableOpacity
             style={styles.radioOption}
-            onPress={() => setActiveOption('discount')}
+            onPress={() => dispatch(setActiveOption('discount'))}
           >
             <View style={styles.radioCircle}>
               {activeOption === 'discount' && <View style={styles.radioDot} />}
@@ -78,7 +96,6 @@ const PaymentScreen = () => {
             <Text style={styles.radioLabel}>Kişiye Özel İndirim Oranı</Text>
           </TouchableOpacity>
         </View>
-        
 
         {/* Bakımla Puan */}
         <View style={styles.pointsContainer}>
@@ -88,8 +105,7 @@ const PaymentScreen = () => {
             <Text style={styles.useBtnText}>Kullan</Text>
           </TouchableOpacity>
         </View>
-        
-        
+
         {/* Footer Buttons */}
         <View style={styles.footer}>
           <TouchableOpacity style={styles.confirmBtn} onPress={handleConfirm}>

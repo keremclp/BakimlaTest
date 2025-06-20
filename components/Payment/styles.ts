@@ -80,33 +80,6 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#5D3FD3',
   },
-  tipBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 6,
-    marginBottom: 12,
-  },
-  input: {
-    flex: 1,
-    borderColor: '#DDD',
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    backgroundColor: '#FFF',
-    fontSize: 16,
-  },
-  applyBtn: {
-    backgroundColor: '#1DD75B',
-    marginLeft: 10,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderRadius: 10,
-  },
-  applyBtnText: {
-    color: '#FFF',
-    fontWeight: '600',
-  },
   paymentMethodContainer: {
     marginTop: 20,
     backgroundColor: '#FFF',

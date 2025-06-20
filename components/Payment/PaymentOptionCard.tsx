@@ -15,9 +15,9 @@ const PaymentOptionCard = ({ label, description, isCash, selected, onSelect }: P
     <TouchableOpacity style={[styles.card, selected && styles.selected]} onPress={onSelect}>
       <View style={styles.iconContainer}>
         {isCash ? (
-          <CashSvg width={24} height={24} fill={selected ? '#5D3FD3' : '#888'} />
+          <CashSvg width={40} height={40} fill={selected ? '#5D3FD3' : '#888'} />
         ) : (
-          <CreditCardSvg width={24} height={24} fill={selected ? '#5D3FD3' : '#888'} />
+          <CreditCardSvg width={40} height={40} fill={selected ? '#5D3FD3' : '#888'} />
         )}
       </View>
       <View style={styles.textContainer}>
