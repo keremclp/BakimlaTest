@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   View,
   Text,
@@ -10,6 +11,7 @@ import PaymentOptionCard from '../../components/Payment/PaymentOptionCard';
 import { styles } from '../../components/Payment/styles';
 import PaymentScreenHeader from '../../components/Payment/PaymentScreenHeader';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { Iconify } from 'react-native-iconify';
 import {
   setPaymentMethod,
   setActiveOption,
@@ -79,6 +81,11 @@ const PaymentScreen = () => {
             style={styles.radioOption}
             onPress={() => dispatch(setActiveOption('tip'))}
           >
+            <Iconify
+              icon="mdi:check-circle"
+              size={24}
+              color={activeOption === 'tip' ? '#5D3FD3' : '#BDBDBD'}
+            />
             <View style={styles.radioCircle}>
               {activeOption === 'tip' && <View style={styles.radioDot} />}
             </View>

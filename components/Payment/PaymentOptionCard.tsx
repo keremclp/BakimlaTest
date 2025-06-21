@@ -1,5 +1,4 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
 import CreditCardSvg from '../../assets/svg/CreditCard.svg';
 import CashSvg from '../../assets/svg/Cash.svg';
 interface PaymentOptionCardProps {

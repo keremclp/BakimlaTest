@@ -10,48 +10,56 @@ export const styles = StyleSheet.create({
   },
   content: {
     padding: 20,
-    paddingBottom: 0, // Remove bottom padding since bottom container is separate
+    paddingBottom: 0,
   },
+
+  // HEADER STYLES
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderBottomWidth: 3,
-    borderBottomColor: '#DDD',
-    marginTop: 20,
+    borderColor: '#5D3FD3',
+    marginTop: 30,
   },
+  // Title and Amount Styles
   titleContainer: {    
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
+   
   },
-  backIcon:{
-    fontSize: 24,
-    backgroundColor: '#FFFFFF',
-    padding: 10,
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: '#DDD',
-    color: '#131313',
-    justifyContent: 'center',
+  titleContent: {
     alignItems: 'center',
-  },
-  threeDotIcon: {
-    fontSize: 24,
-    color: '#5D3FD3',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    textAlign: 'center',
   },
   title: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: '700',
-    marginBottom: 4,
+  },
+  // end of title and amount styles
+  backButton: {
+    padding: 10,
+    borderRadius: 5,
+    backgroundColor: '#FFFFFF',
+  },
+  optionsButton: {
+    padding: 10,
+    borderRadius: 5,
+    backgroundColor: '#FFFFFF',
+  },
+
+  amountContainer: {
+    alignItems: 'center',
+    marginBottom: 20,
   },
   amount: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: '700',
-    color: '#000',
+    color: '#1C1D27',
   },
+
+ 
   radioGroup: {
     marginTop: 12,
     marginBottom: 8,
