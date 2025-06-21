@@ -19,6 +19,15 @@ const HomeScreen = () => {
             navigation.navigate('Payment');
           }}
         />
+        <View style={{ marginTop: 20 }}>
+          <Button
+            title="RTK Query Test"
+            color="#4CAF50"
+            onPress={() => {
+              navigation.navigate('RtkQuery');
+            }}
+          />
+        </View>
 
       </View>
     </SafeAreaView>
