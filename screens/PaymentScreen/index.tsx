@@ -122,6 +122,30 @@ const PaymentScreen = () => {
             </View>
             <Text style={styles.radioLabel}>Kişiye Özel İndirim Oranı</Text>
           </TouchableOpacity>
+          {activeOption === 'discount' && (
+            <View style={styles.tipContainer}>
+                <View style={styles.tipInputContainer}>
+                  <TouchableOpacity style={styles.dropdownContainer}>
+                    <TextInput
+                      style={styles.tipInputDropdown}
+                      placeholder="İndirim Oranı Seçin"
+                      placeholderTextColor="#888"
+                      value={discountRate ? `${discountRate}` : ''}
+                      editable={false}
+                    />
+                    <Iconify icon="mdi:chevron-down" size={20} color="#888" />
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.tipInfo}>
+                  <TouchableOpacity
+                    style={styles.confirmTipBtn}
+                    onPress={() => console.log('Ek Ücret Onaylandı:', tipAmount)}
+                  >
+                    <Text style={styles.confirmTipText}>Onayla</Text>
+                  </TouchableOpacity>
+                </View>
+            </View>
+          )}
         </View>
 
         {/* Bakımla Puan */}

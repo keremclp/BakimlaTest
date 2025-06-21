@@ -78,7 +78,7 @@ export const styles = StyleSheet.create({
     height: 18,
     borderRadius: 9,
     borderWidth: 2,
-    borderColor: '#5D3FD3',
+    borderColor: '#53F293',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -86,14 +86,14 @@ export const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: '#5D3FD3',
+    backgroundColor: '#53F293',
   },
   // TIP INPUT STYLES
   tipContainer: {
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'center',
-    marginTop: 10,
+    marginBottom: 10,
   },
 
   tipInputContainer: {
@@ -127,15 +127,15 @@ export const styles = StyleSheet.create({
   },
   confirmTipBtn: {
     flex: 1,
-    backgroundColor: '#5D3FD3',
+    backgroundColor: '#53F293',
     borderRadius: 8,
     paddingVertical: 8,
     paddingHorizontal: 16,
-    marginTop: 10,
+    marginTop: 7,
     alignItems: 'center',
   },
   confirmTipText: {
-    color: '#FFFFFF',
+    color: '#1C1D27',
     fontSize: 14,
     fontWeight: '600',
   },
@@ -175,6 +175,24 @@ export const styles = StyleSheet.create({
     padding: 14,
     minHeight: 110,
     
+  },
+
+  dropdownContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#f5f5f5',
+    borderRadius: 5,
+    marginRight:10,
+  },
+  tipInputDropdown: {
+    flex: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    fontSize: 14,
+    color: '#1C1D27',
+    backgroundColor: '#f5f5f5',
+    borderRadius: 5,
   },
   pointsContainer: {
     zIndex: 2,
