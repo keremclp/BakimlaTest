@@ -77,23 +77,42 @@ const PaymentScreen = () => {
       {/* Bottom Container - Fixed at bottom, full width */}
       <View style={styles.bottomContainer}>
         {/* Options Toggle */}
-        <View style={styles.optionsContainerTip}>
+        <View style={[styles.optionsContainerTip, activeOption === 'tip' && styles.activeOptionTip]}>
           <TouchableOpacity
             style={styles.radioOption}
             onPress={() => dispatch(setActiveOption('tip'))}
           >
-            <Iconify
-              icon="mdi:check-circle"
-              size={24}
-              color={activeOption === 'tip' ? '#5D3FD3' : '#BDBDBD'}
-            />
             <View style={styles.radioCircle}>
               {activeOption === 'tip' && <View style={styles.radioDot} />}
             </View>
             <Text style={styles.radioLabel}>Ek Ücret veya Bahşiş Al</Text>
           </TouchableOpacity>
+          {activeOption === 'tip' && (
+            <View style={styles.tipContainer}>
+              <View style={styles.tipInputContainer}>
+                <TextInput
+                  style={styles.tipInput}
+                  placeholder="Ek Ücret Tutarı"
+                  placeholderTextColor="#888"
+                  keyboardType="numeric"
+                  value={tipAmount}
+                  onChangeText={(text) => dispatch(setTipAmount(text))}
+                />
+                <Text style={styles.currencySymbol}>₺</Text>
+              </View>
+              <View style={styles.tipInfo}>
+                <TouchableOpacity
+                  style={styles.confirmTipBtn}
+                  onPress={() => console.log('Ek Ücret Onaylandı:', tipAmount)}
+                >
+                  <Text style={styles.confirmTipText}>Onayla</Text>
+                </TouchableOpacity>
+              </View>
+
+            </View>
+          )}
         </View>
-        <View style={styles.optionsContainerDiscount}>
+        <View style={[styles.optionsContainerDiscount, activeOption === 'discount' && styles.activeOptionDiscount]}>
           <TouchableOpacity
             style={styles.radioOption}
             onPress={() => dispatch(setActiveOption('discount'))}

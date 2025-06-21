@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
     color: '#1C1D27',
   },
 
- 
+  // RADIO BUTTON STYLES
   radioGroup: {
     marginTop: 12,
     marginBottom: 8,
@@ -88,6 +88,57 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#5D3FD3',
   },
+  // TIP INPUT STYLES
+  tipContainer: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    marginTop: 10,
+  },
+
+  tipInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 25,
+  },
+  tipInput: {
+    flex: 1,
+    marginRight: 10,
+    borderColor: '#DDD',
+    backgroundColor: '#f5f5f5',
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    fontSize: 14,
+    color: '#1C1D27',
+  },
+  currencySymbol: {
+    position: 'absolute',
+    right: 20,
+    fontSize: 16,
+    color: '#000',
+    opacity: 0.4,
+  },
+  tipInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    marginLeft: 25,
+    marginRight: 10,
+  },
+  confirmTipBtn: {
+    flex: 1,
+    backgroundColor: '#5D3FD3',
+    borderRadius: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    marginTop: 10,
+    alignItems: 'center',
+  },
+  confirmTipText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '600',
+  },
   paymentMethodContainer: {
     marginTop: 20,
     backgroundColor: '#FFF',
@@ -106,22 +157,24 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: 12,
     borderTopRightRadius: 12,
     padding: 14,
-    height: 80,
-    position: 'absolute',
-    bottom: 207,
-    width: '100%',
+    minHeight: 60,
+  },
+  activeOptionTip: {
+    height: 150,
+  },
+  activeOptionDiscount: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#5D3FD3',
+    height: 200,
   },
   optionsContainerDiscount: {
     backgroundColor: '#FFFFFF',
     borderTopLeftRadius: 12,
     borderTopRightRadius: 12,
-    borderWidth: 1,
     borderColor: '#DDD',
     padding: 14,
-    height: 80,
-    position: 'absolute',
-    bottom: 153,
-    width: '100%',
+    minHeight: 110,
+    
   },
   pointsContainer: {
     zIndex: 2,
