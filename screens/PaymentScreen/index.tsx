@@ -50,29 +50,30 @@ const PaymentScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.content}
+      >
         {/* Header */}
         <PaymentScreenHeader />
+        <PaymentOptionCard
+          label="Nakit"
+          description="Bu seçim ile müşterinizden nakit ödeme alabilirsiniz."
+          isCash={true}
+          selected={paymentMethod === 'cash'}
+          onSelect={() => dispatch(setPaymentMethod('cash'))}
+        />
 
-        <View style={styles.paymentMethodContainer}>
-          <PaymentOptionCard
-            label="Nakit"
-            description="Bu seçim ile müşterinizden nakit ödeme alabilirsiniz."
-            isCash={true}
-            selected={paymentMethod === 'cash'}
-            onSelect={() => dispatch(setPaymentMethod('cash'))}
-          />
+        <PaymentOptionCard
+          label="Online Kredi Kartı"
+          description="Bu seçim ile müşterinize online ödeme bildirimi göndereceğiz."
+          isCash={false}
+          selected={paymentMethod === 'card'}
+          onSelect={() => dispatch(setPaymentMethod('card'))}
+        />
 
-          <PaymentOptionCard
-            label="Online Kredi Kartı"
-            description="Bu seçim ile müşterinize online ödeme bildirimi göndereceğiz."
-            isCash={false}
-            selected={paymentMethod === 'card'}
-            onSelect={() => dispatch(setPaymentMethod('card'))}
-          />
-        </View>
       </ScrollView>
-      
+
       {/* Bottom Container - Fixed at bottom, full width */}
       <View style={styles.bottomContainer}>
         {/* Options Toggle */}
