@@ -13,6 +13,11 @@ interface PaymentOptionCardProps {
 const PaymentOptionCard = ({ label, description, isCash, selected, onSelect }: PaymentOptionCardProps) => {
   return (
     <TouchableOpacity style={[styles.card, selected && styles.selected]} onPress={onSelect}>
+      <View style={styles.radioButtonContainer}>
+        <View style={[styles.radioButton, selected ? styles.radioButtonSelected : styles.radioButtonUnselected]}>
+          {selected && <View style={styles.radioButtonInner} />}
+        </View>
+      </View>
       <View style={styles.iconContainer}>
         {isCash ? (
           <>
@@ -55,6 +60,31 @@ const styles = StyleSheet.create({
     borderColor: '#5D3FD3',
     borderWidth: 2,
     opacity: 1,
+  },
+  radioButtonContainer: {
+    position: 'absolute',
+    top: 17,
+    right: 17,
+  },
+  radioButton: {
+    height: 20,
+    width: 20,
+    borderRadius: 12,
+    borderWidth: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  radioButtonSelected: {
+    borderColor: '#53F293',
+  },
+  radioButtonUnselected: {
+    borderColor: '#888',
+  },
+  radioButtonInner: {
+    height: 12,
+    width: 12,
+    borderRadius: 6,
+    backgroundColor: '#53F293',
   },
   iconContainer: {
     flexDirection: 'row',
