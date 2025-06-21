@@ -46,11 +46,9 @@ export default PaymentOptionCard
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#FFF',
-    padding: 16,
+    padding: 20,
     marginBottom: 12,
     borderRadius: 20,
-    borderWidth: 1,
-    borderColor: '#E0E0E0',
     opacity: 0.7,
   },
   selected: {
@@ -67,7 +65,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginLeft: 12,
     marginTop: 8,
   },
   label: {
