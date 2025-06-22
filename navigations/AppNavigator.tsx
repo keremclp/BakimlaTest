@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PaymentScreen from '../screens/PaymentScreen';
 import { RootStackParamList } from './types';
 import RtkQueryScreen from '../screens/RtkQueryScreen';
+import PostDetailScreen from '../screens/PostDetailScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -21,6 +22,7 @@ const AppNavigator = () => {
         <Stack.Screen name="User" component={UserStacks} />
         <Stack.Screen name="Payment" component={PaymentScreen} />
         <Stack.Screen name="RtkQuery" component={RtkQueryScreen} />
+        <Stack.Screen name="PostDetail" component={PostDetailScreen} />
 
       </Stack.Navigator>
     </NavigationContainer>
