@@ -1,5 +1,6 @@
-import { SafeAreaView, StyleSheet, Text, View,Button } from 'react-native'
+import { SafeAreaView, Text, View,Button } from 'react-native'
 import React from 'react'
+import { styles } from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigations/types';
@@ -35,28 +36,3 @@ const HomeScreen = () => {
 }
 
 export default HomeScreen 
-
-const styles = StyleSheet.create({
-    container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 18,
-    color: '#666',
-    marginBottom: 20,
-  },
-
-})

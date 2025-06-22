@@ -1,23 +1,15 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import { View, SafeAreaView, ScrollView } from 'react-native';
 import PaymentOptionCard from '../../components/Payment/PaymentOptionCard';
-import { styles } from '../../components/Payment/styles';
+import { styles } from './styles';
 import PaymentScreenHeader from '../../components/Payment/PaymentScreenHeader';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { Iconify } from 'react-native-iconify';
-import {
-  setPaymentMethod,
-  setActiveOption,
-  setTipAmount,
-  setDiscountRate,
-} from '../../redux/slices/paymentSlice';
+import { setPaymentMethod } from '../../redux/slices/paymentSlice';
+
+import TipContainer from '../../components/Payment/BottomContainer/TipContainer';
+import DiscountContainer from '../../components/Payment/BottomContainer/DiscountContainer';
+import PointsContainer from '../../components/Payment/BottomContainer/PointsContainer';
+import BottomContainerFooter from '../../components/Payment/BottomContainer/BottomContainerFooter';
 
 const PaymentScreen = () => {
   console.log('PaymentScreen component is rendering!');
@@ -77,95 +69,14 @@ const PaymentScreen = () => {
       {/* Bottom Container - Fixed at bottom, full width */}
       <View style={styles.bottomContainer}>
         {/* Options Toggle */}
-        <View style={[styles.optionsContainerTip, activeOption === 'tip' && styles.activeOptionTip]}>
-          <TouchableOpacity
-            style={styles.radioOption}
-            onPress={() => dispatch(setActiveOption('tip'))}
-          >
-            <View style={styles.radioCircle}>
-              {activeOption === 'tip' && <View style={styles.radioDot} />}
-            </View>
-            <Text style={styles.radioLabel}>Ek Ücret veya Bahşiş Al</Text>
-          </TouchableOpacity>
-          {activeOption === 'tip' && (
-            <View style={styles.tipContainer}>
-              <View style={styles.tipInputContainer}>
-                <TextInput
-                  style={styles.tipInput}
-                  placeholder="Ek Ücret Tutarı"
-                  placeholderTextColor="#888"
-                  keyboardType="numeric"
-                  value={tipAmount}
-                  onChangeText={(text) => dispatch(setTipAmount(text))}
-                />
-                <Text style={styles.currencySymbol}>₺</Text>
-              </View>
-              <View style={styles.tipInfo}>
-                <TouchableOpacity
-                  style={styles.confirmTipBtn}
-                  onPress={() => console.log('Ek Ücret Onaylandı:', tipAmount)}
-                >
-                  <Text style={styles.confirmTipText}>Onayla</Text>
-                </TouchableOpacity>
-              </View>
-
-            </View>
-          )}
-        </View>
-        <View style={[styles.optionsContainerDiscount, activeOption === 'discount' && styles.activeOptionDiscount]}>
-          <TouchableOpacity
-            style={styles.radioOption}
-            onPress={() => dispatch(setActiveOption('discount'))}
-          >
-            <View style={styles.radioCircle}>
-              {activeOption === 'discount' && <View style={styles.radioDot} />}
-            </View>
-            <Text style={styles.radioLabel}>Kişiye Özel İndirim Oranı</Text>
-          </TouchableOpacity>
-          {activeOption === 'discount' && (
-            <View style={styles.tipContainer}>
-                <View style={styles.tipInputContainer}>
-                  <TouchableOpacity style={styles.dropdownContainer}>
-                    <TextInput
-                      style={styles.tipInputDropdown}
-                      placeholder="İndirim Oranı Seçin"
-                      placeholderTextColor="#888"
-                      value={discountRate ? `${discountRate}` : ''}
-                      editable={false}
-                    />
-                    <Iconify icon="mdi:chevron-down" size={20} color="#888" />
-                  </TouchableOpacity>
-                </View>
-                <View style={styles.tipInfo}>
-                  <TouchableOpacity
-                    style={styles.confirmTipBtn}
-                    onPress={() => console.log('Ek Ücret Onaylandı:', tipAmount)}
-                  >
-                    <Text style={styles.confirmTipText}>Onayla</Text>
-                  </TouchableOpacity>
-                </View>
-            </View>
-          )}
-        </View>
+        <TipContainer />
+        <DiscountContainer />
 
         {/* Bakımla Puan */}
-        <View style={styles.pointsContainer}>
-          <Text style={styles.pointsText}>Bakımla Puan</Text>
-          <Text style={styles.pointsAmount}>{bakimlaPoints.toFixed(2)}₺</Text>
-          <TouchableOpacity style={styles.useBtn}>
-            <Text style={styles.useBtnText}>Kullan</Text>
-          </TouchableOpacity>
-        </View>
+        <PointsContainer />
 
         {/* Footer Buttons */}
-        <View style={styles.footer}>
-          <TouchableOpacity style={styles.confirmBtn} onPress={handleConfirm}>
-            <Text style={styles.confirmText}>Onayla</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.cancelText}>Vazgeç</Text>
-          </TouchableOpacity>
-        </View>
+        <BottomContainerFooter />
       </View>
     </SafeAreaView>
   );

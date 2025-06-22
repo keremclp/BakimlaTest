@@ -1,18 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F4F4F4',
-  },
-  scrollView: {
-    flex: 1,
-  },
-  content: {
-    padding: 20,
-    paddingBottom: 0,
-  },
-
   // HEADER STYLES
   headerContainer: {
     flexDirection: 'row',
@@ -146,11 +134,6 @@ export const styles = StyleSheet.create({
     padding: 16,
     borderWidth: 1,
     borderColor: '#DDD',
-  },
-  bottomContainer: {
-    position:'relative',
-    width: '100%',
-    // Remove height and border properties
   },
   optionsContainerTip: {
     backgroundColor: '#FFFFFF',
